@@ -18,6 +18,9 @@ namespace BrziPrsti
         private int start;
         private int seconds;
         private float wpm;
+        private float accuracy;
+        private int numLetters, wrongLetters;
+        private bool generated;
         public Game()
         {
             InitializeComponent();
@@ -45,6 +48,7 @@ namespace BrziPrsti
         private void button1_Click(object sender, EventArgs e)
         {
             generate();
+            generated = true;
         }
         private void reset()
         { 
@@ -52,12 +56,17 @@ namespace BrziPrsti
             lblGuessed.Text = "";
             lblGeneratedWords.Text = "Click the button to generate words!";
             textBox1.Text = "Click the button to generate words!";
+            wpmlbl.Text = "Your wpm: 0";
+            lblAccuracy.Text = "Your accuracy: 100%";
             // VALUES
             guessedWords = 0;
             start = 3;
             seconds = 60;
             pbMinuteTimer.Value = 60;
             wpm = 0;
+            accuracy = 100;
+            numLetters = 0;
+            wrongLetters = 1;
             //TIMERS
             timerMinute.Stop();
             startTimer.Stop();
@@ -65,6 +74,7 @@ namespace BrziPrsti
             textBox1.ReadOnly = true;
             button1.Enabled = true;
             button2.Enabled = true;
+            generated = false;
         }
         private void generate()
         {
@@ -72,6 +82,7 @@ namespace BrziPrsti
             Random rand = new Random();
             int a = rand.Next(0, rechenice.Count);
             textZaPogoduvanje = rechenice[a];
+            numLetters = textZaPogoduvanje.Length;
             lblGeneratedWords.Text = textZaPogoduvanje;
             textBox1.Text = "Type the above text here when the race begins!";
         }
@@ -82,37 +93,39 @@ namespace BrziPrsti
             {
                 if (guessedWords == textZaPogoduvanje.Split().Length)
                 {
-                    reset();
                     if(wpm < 80)
                     {
-                        if (MessageBox.Show("Congrats, you finished early.\nWPM: " + wpm.ToString() + "\nNEW GAME?", "GOOD JOB!", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                        if (MessageBox.Show("Congrats, you finished early.\nWPM: " + wpm.ToString() + "\nAccuracy: " + accuracy + "%\nNEW GAME?", "GOOD JOB!", MessageBoxButtons.YesNo) == DialogResult.Yes)
                         {
                             generate();
                         }
                         else
                         {
+                            reset();
                             textBox1.ReadOnly = true;
                         }
                     }
                     if (wpm > 100)
                     {
-                        if (MessageBox.Show("YOU ARE OCTOPUS! GOOD JOB!\nWPM: " + wpm.ToString() + "\nNEW GAME?", "GOOD JOB!", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                        if (MessageBox.Show("YOU ARE OCTOPUS! GOOD JOB!\nWPM: " + wpm.ToString() + "\nAccuracy: "+accuracy+"%\nNEW GAME ?", "GOOD JOB!", MessageBoxButtons.YesNo) == DialogResult.Yes)
                         {
                             generate();
                         }
                         else
                         {
+                            reset();
                             textBox1.ReadOnly = true;
                         }
                     }
                     else
                     {
-                        if (MessageBox.Show("Congrats, you are middle-range writer!\nWPM: " + wpm.ToString() + "\nNEW GAME?", "GOOD JOB!", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                        if (MessageBox.Show("Congrats, you are middle-range writer!\nWPM: " + wpm.ToString() + "%\nAccuracy: "+accuracy+"\nNEW GAME?", "GOOD JOB!", MessageBoxButtons.YesNo) == DialogResult.Yes)
                         {
                             generate();
                         }
                         else
                         {
+                            reset();
                             textBox1.ReadOnly = true;
                         }
                     }
@@ -126,7 +139,7 @@ namespace BrziPrsti
                         guessedWords += 1;
                         lblGuessed.Text += textBox1.Text + " ";
                         wpm = guessedWords / ((float)seconds / 60);
-                        wpmlbl.Text = wpm.ToString();
+                        wpmlbl.Text = "Your wpm: "+wpm.ToString();
                         textBox1.Text = "";
                     }
                     else
@@ -134,10 +147,16 @@ namespace BrziPrsti
                         if (!proverka.Contains(textBox1.Text))
                         {
                             lblGeneratedWords.ForeColor = Color.Red;
+                            wrongLetters += 1;
+                            accuracy = (((float) numLetters - wrongLetters/2 )/ numLetters)*100; // deleno so 2 deka gi zema kako pogresni i na brisenje.
+                            int acc = (int)accuracy;
+                            lblAccuracy.Text = "Your accuracy: " + acc.ToString() + "%";
                         }
                         else
                         {
                             lblGeneratedWords.ForeColor = Color.Black;
+                            int acc = (int)accuracy;
+                            lblAccuracy.Text = "Your accuracy: " + acc.ToString() + "%";
                         }
                     }
                 }
@@ -160,13 +179,15 @@ namespace BrziPrsti
                 textBox1.Text = "";
                 textBox1.ReadOnly = false;
                 timerMinute.Start();
+                textBox1.Focus();
                 start = -20;
             }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            generate();
+            if(!generated)
+                generate();
             startTimer.Start();
             button1.Enabled = false;
             button2.Enabled = false;

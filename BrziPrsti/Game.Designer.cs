@@ -40,6 +40,7 @@ namespace BrziPrsti
             this.timerMinute = new System.Windows.Forms.Timer(this.components);
             this.lblCount = new System.Windows.Forms.Label();
             this.wpmlbl = new System.Windows.Forms.Label();
+            this.lblAccuracy = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblGeneratedWords
@@ -124,15 +125,25 @@ namespace BrziPrsti
             this.wpmlbl.AutoSize = true;
             this.wpmlbl.Location = new System.Drawing.Point(22, 483);
             this.wpmlbl.Name = "wpmlbl";
-            this.wpmlbl.Size = new System.Drawing.Size(78, 17);
+            this.wpmlbl.Size = new System.Drawing.Size(86, 17);
             this.wpmlbl.TabIndex = 7;
-            this.wpmlbl.Text = "Your wpm: ";
+            this.wpmlbl.Text = "Your wpm: 0";
+            // 
+            // lblAccuracy
+            // 
+            this.lblAccuracy.AutoSize = true;
+            this.lblAccuracy.Location = new System.Drawing.Point(743, 483);
+            this.lblAccuracy.Name = "lblAccuracy";
+            this.lblAccuracy.Size = new System.Drawing.Size(143, 17);
+            this.lblAccuracy.TabIndex = 8;
+            this.lblAccuracy.Text = "Your accuracy: 100%";
             // 
             // Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(898, 593);
+            this.Controls.Add(this.lblAccuracy);
             this.Controls.Add(this.wpmlbl);
             this.Controls.Add(this.lblCount);
             this.Controls.Add(this.pbMinuteTimer);
@@ -160,5 +171,6 @@ namespace BrziPrsti
         private System.Windows.Forms.Timer timerMinute;
         private System.Windows.Forms.Label lblCount;
         private System.Windows.Forms.Label wpmlbl;
+        private System.Windows.Forms.Label lblAccuracy;
     }
 }
