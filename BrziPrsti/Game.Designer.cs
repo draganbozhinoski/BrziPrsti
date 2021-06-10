@@ -41,6 +41,7 @@ namespace BrziPrsti
             this.lblCount = new System.Windows.Forms.Label();
             this.wpmlbl = new System.Windows.Forms.Label();
             this.lblAccuracy = new System.Windows.Forms.Label();
+            this.lblSeconds = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblGeneratedWords
@@ -48,7 +49,7 @@ namespace BrziPrsti
             this.lblGeneratedWords.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGeneratedWords.Location = new System.Drawing.Point(13, 13);
             this.lblGeneratedWords.Name = "lblGeneratedWords";
-            this.lblGeneratedWords.Size = new System.Drawing.Size(873, 188);
+            this.lblGeneratedWords.Size = new System.Drawing.Size(822, 190);
             this.lblGeneratedWords.TabIndex = 0;
             this.lblGeneratedWords.Text = "Click the button to generate words..";
             // 
@@ -138,11 +139,23 @@ namespace BrziPrsti
             this.lblAccuracy.TabIndex = 8;
             this.lblAccuracy.Text = "Your accuracy: 100%";
             // 
+            // lblSeconds
+            // 
+            this.lblSeconds.AutoSize = true;
+            this.lblSeconds.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSeconds.ForeColor = System.Drawing.Color.CornflowerBlue;
+            this.lblSeconds.Location = new System.Drawing.Point(842, 22);
+            this.lblSeconds.Name = "lblSeconds";
+            this.lblSeconds.Size = new System.Drawing.Size(43, 29);
+            this.lblSeconds.TabIndex = 9;
+            this.lblSeconds.Text = "60";
+            // 
             // Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(898, 593);
+            this.Controls.Add(this.lblSeconds);
             this.Controls.Add(this.lblAccuracy);
             this.Controls.Add(this.wpmlbl);
             this.Controls.Add(this.lblCount);
@@ -172,5 +185,6 @@ namespace BrziPrsti
         private System.Windows.Forms.Label lblCount;
         private System.Windows.Forms.Label wpmlbl;
         private System.Windows.Forms.Label lblAccuracy;
+        private System.Windows.Forms.Label lblSeconds;
     }
 }
