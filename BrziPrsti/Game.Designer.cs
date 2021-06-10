@@ -42,6 +42,12 @@ namespace BrziPrsti
             this.wpmlbl = new System.Windows.Forms.Label();
             this.lblAccuracy = new System.Windows.Forms.Label();
             this.lblSeconds = new System.Windows.Forms.Label();
+            this.imgZeleno = new System.Windows.Forms.PictureBox();
+            this.imgZholto = new System.Windows.Forms.PictureBox();
+            this.imgCrveno = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.imgZeleno)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgZholto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgCrveno)).BeginInit();
             this.SuspendLayout();
             // 
             // lblGeneratedWords
@@ -86,7 +92,7 @@ namespace BrziPrsti
             // 
             this.lblGuessed.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGuessed.ForeColor = System.Drawing.Color.Lime;
-            this.lblGuessed.Location = new System.Drawing.Point(17, 267);
+            this.lblGuessed.Location = new System.Drawing.Point(17, 293);
             this.lblGuessed.Name = "lblGuessed";
             this.lblGuessed.Size = new System.Drawing.Size(876, 106);
             this.lblGuessed.TabIndex = 4;
@@ -98,7 +104,7 @@ namespace BrziPrsti
             // 
             // pbMinuteTimer
             // 
-            this.pbMinuteTimer.Location = new System.Drawing.Point(18, 386);
+            this.pbMinuteTimer.Location = new System.Drawing.Point(18, 405);
             this.pbMinuteTimer.Maximum = 60;
             this.pbMinuteTimer.Name = "pbMinuteTimer";
             this.pbMinuteTimer.Size = new System.Drawing.Size(873, 23);
@@ -114,11 +120,11 @@ namespace BrziPrsti
             // 
             this.lblCount.AutoSize = true;
             this.lblCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 35F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCount.Location = new System.Drawing.Point(417, 282);
+            this.lblCount.Location = new System.Drawing.Point(521, 312);
             this.lblCount.Name = "lblCount";
-            this.lblCount.Size = new System.Drawing.Size(62, 67);
+            this.lblCount.Size = new System.Drawing.Size(95, 67);
             this.lblCount.TabIndex = 6;
-            this.lblCount.Text = "3";
+            this.lblCount.Text = "10";
             this.lblCount.Visible = false;
             // 
             // wpmlbl
@@ -144,17 +150,53 @@ namespace BrziPrsti
             this.lblSeconds.AutoSize = true;
             this.lblSeconds.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSeconds.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.lblSeconds.Location = new System.Drawing.Point(842, 22);
+            this.lblSeconds.Location = new System.Drawing.Point(433, 431);
             this.lblSeconds.Name = "lblSeconds";
             this.lblSeconds.Size = new System.Drawing.Size(43, 29);
             this.lblSeconds.TabIndex = 9;
             this.lblSeconds.Text = "60";
+            // 
+            // imgZeleno
+            // 
+            this.imgZeleno.Image = global::BrziPrsti.Properties.Resources.zeleno;
+            this.imgZeleno.Location = new System.Drawing.Point(398, 289);
+            this.imgZeleno.Name = "imgZeleno";
+            this.imgZeleno.Size = new System.Drawing.Size(117, 110);
+            this.imgZeleno.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imgZeleno.TabIndex = 12;
+            this.imgZeleno.TabStop = false;
+            this.imgZeleno.Visible = false;
+            // 
+            // imgZholto
+            // 
+            this.imgZholto.Image = global::BrziPrsti.Properties.Resources.zholto;
+            this.imgZholto.Location = new System.Drawing.Point(398, 289);
+            this.imgZholto.Name = "imgZholto";
+            this.imgZholto.Size = new System.Drawing.Size(117, 110);
+            this.imgZholto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imgZholto.TabIndex = 11;
+            this.imgZholto.TabStop = false;
+            this.imgZholto.Visible = false;
+            // 
+            // imgCrveno
+            // 
+            this.imgCrveno.Image = global::BrziPrsti.Properties.Resources.crveno;
+            this.imgCrveno.Location = new System.Drawing.Point(398, 289);
+            this.imgCrveno.Name = "imgCrveno";
+            this.imgCrveno.Size = new System.Drawing.Size(117, 110);
+            this.imgCrveno.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imgCrveno.TabIndex = 10;
+            this.imgCrveno.TabStop = false;
+            this.imgCrveno.Visible = false;
             // 
             // Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(898, 593);
+            this.Controls.Add(this.imgZeleno);
+            this.Controls.Add(this.imgZholto);
+            this.Controls.Add(this.imgCrveno);
             this.Controls.Add(this.lblSeconds);
             this.Controls.Add(this.lblAccuracy);
             this.Controls.Add(this.wpmlbl);
@@ -167,6 +209,9 @@ namespace BrziPrsti
             this.Controls.Add(this.lblGeneratedWords);
             this.Name = "Game";
             this.Text = "Game";
+            ((System.ComponentModel.ISupportInitialize)(this.imgZeleno)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgZholto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgCrveno)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -186,5 +231,8 @@ namespace BrziPrsti
         private System.Windows.Forms.Label wpmlbl;
         private System.Windows.Forms.Label lblAccuracy;
         private System.Windows.Forms.Label lblSeconds;
+        private System.Windows.Forms.PictureBox imgCrveno;
+        private System.Windows.Forms.PictureBox imgZholto;
+        private System.Windows.Forms.PictureBox imgZeleno;
     }
 }

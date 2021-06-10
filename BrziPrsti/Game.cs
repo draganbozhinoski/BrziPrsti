@@ -61,7 +61,7 @@ namespace BrziPrsti
             lblSeconds.Text = "60";
             // VALUES
             guessedWords = 0;
-            start = 3;
+            start = 10;
             seconds = 60;
             pbMinuteTimer.Value = 60;
             wpm = 0;
@@ -76,6 +76,8 @@ namespace BrziPrsti
             button1.Enabled = true;
             button2.Enabled = true;
             generated = false;
+            lblSeconds.ForeColor = Color.Black;
+            lblCount.ForeColor = Color.Black;
         }
         private void generate()
         {
@@ -173,13 +175,27 @@ namespace BrziPrsti
         {
             if(start > 0)
             {
+                if (start > 6)
+                    imgCrveno.Visible = true;
+                else
+                {
+                    lblCount.ForeColor = Color.Yellow;
+                    imgCrveno.Visible = false;
+                    imgZholto.Visible = true;
+                }
                 start -= 1;
                 lblCount.Text = start.ToString();
                 if (start == 0)
+                {
+                    imgZholto.Visible = false;
+                    imgZeleno.Visible = true;
+                    lblCount.ForeColor = Color.Green;
                     lblCount.Text = "GO!";
+                }
             }
             else if(start==0)
             {
+                imgZeleno.Visible = false;
                 lblCount.Text = "GO!";
                 lblCount.Visible = false;
                 textBox1.Text = "";
@@ -198,6 +214,7 @@ namespace BrziPrsti
             button1.Enabled = false;
             button2.Enabled = false;
             lblCount.Visible = true;
+            imgCrveno.Visible = true;
         }
 
         private void timerMinute_Tick(object sender, EventArgs e)
@@ -207,6 +224,10 @@ namespace BrziPrsti
                 seconds -= 1;
                 pbMinuteTimer.Value = seconds;
                 lblSeconds.Text = seconds.ToString();
+                if(seconds<11)
+                {
+                    lblSeconds.ForeColor = Color.Red;
+                }
             }
             else if (seconds == 0)
             {
