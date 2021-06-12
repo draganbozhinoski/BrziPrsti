@@ -17,6 +17,10 @@ namespace BrziPrsti
         string s;
         Queue<char> charsForGues = new Queue<char>();
         bool isWordCorrect = true;
+        int wordsCorrect = 0;
+        int wordsWrong = 0;
+        float accuracy = 0;
+        int minutes = 0;
         public Game1()
         {
             sentences = new List<string>() {
@@ -53,36 +57,90 @@ namespace BrziPrsti
 
         private void txtGuessingWord_KeyPress(object sender, KeyPressEventArgs e)
         {
+            e.Handled = true;
             KeysConverter converter = new KeysConverter();
             string keyPressed = e.KeyChar.ToString();
-            string nextChar = charsForGues.Dequeue().ToString();
-            if (keyPressed.Equals(nextChar))
+            if (charsForGues.Count > 0)
             {
-                txtGuessingWord.SelectionColor = Color.Green;
-                txtGuessingWord.AppendText(nextChar);
+                string nextChar = charsForGues.Dequeue().ToString();
+                if (e.KeyChar != (char)Keys.Back)
+                {
+                   
+                    if (keyPressed.Equals(nextChar))
+                    {
+                        txtGuessingWord.SelectionColor = Color.Green;
+                        txtGuessingWord.AppendText(nextChar);
+                    }
+                    else
+                    {
+                        txtGuessingWord.SelectionColor = Color.Red;
+                        txtGuessingWord.AppendText(nextChar);
+                        isWordCorrect = false;
+                    }
+                    if (nextChar.Equals(" "))
+                    {
+                        if (!isWordCorrect)
+                        {
+                            txtText.SelectionColor = Color.Red;
+                            wordsWrong++;
+                            lblWrong.Text = $"Wrong: {wordsWrong}";
+
+                        }
+                        else
+                        {
+                            txtText.SelectionColor = Color.Green;
+                            wordsCorrect++;
+                            lblCorrect.Text = $"Correct: {wordsCorrect}";
+                        }
+                        txtText.AppendText(txtGuessingWord.Text);
+                        txtGuessingWord.Text = "";
+                        isWordCorrect = true;
+                    }
+                    s = s.Remove(0, 1);
+                    lblWords.Text = s;
+                }
             }
             else
             {
-                txtGuessingWord.SelectionColor = Color.Red;
-                txtGuessingWord.AppendText(nextChar);
-                isWordCorrect = false;
-            }
-            if (keyPressed.Equals(" "))
-            {
-                if (!isWordCorrect)
+
+                if (keyPressed.Equals(" ") || e.KeyChar == (char)Keys.Enter)
                 {
-                    txtText.SelectionColor = Color.Red;
+                    if (!isWordCorrect)
+                    {
+                        txtText.SelectionColor = Color.Red;
+                        wordsWrong++;
+                        lblWrong.Text = lblWrong.Text = $"Wrong: {wordsWrong}";
+
+                    }
+                    else
+                    {
+                        txtText.SelectionColor = Color.Green;
+                        wordsCorrect++;
+                        lblCorrect.Text = $"Correct: {wordsCorrect}";
+                    }
+                    txtText.AppendText(txtGuessingWord.Text);
+                    txtGuessingWord.Text = "";
+                    isWordCorrect = true;
+                    if (minutes > 0)
+                    {
+                        lblWordsPerMinute.Text = $"WPM: {wordsCorrect / minutes}";
+                    }
+                    else
+                    {
+                        lblWordsPerMinute.Text = $"WPM: {wordsCorrect}";
+                    }
+                    accuracy = (float)wordsCorrect / (wordsCorrect + wordsWrong);
+                    lblAcc.Text = $"Accuracy: {accuracy * 100}%";
+                    
                 }
-                else
-                {
-                    txtText.SelectionColor = Color.Green;
-                }
-                txtText.AppendText(txtGuessingWord.Text);
-                txtGuessingWord.Text = "";
-                isWordCorrect = true;
             }
-            s = s.Remove(0, 1);
-            lblWords.Text = s;
+                      
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            minutes++;
         }
     }
 }

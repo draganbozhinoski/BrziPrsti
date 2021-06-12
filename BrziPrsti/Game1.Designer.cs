@@ -29,10 +29,16 @@ namespace BrziPrsti
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txtText = new System.Windows.Forms.RichTextBox();
             this.txtGuessingWord = new System.Windows.Forms.RichTextBox();
             this.lblWords = new System.Windows.Forms.Label();
             this.lblLine = new System.Windows.Forms.Label();
+            this.lblCorrect = new System.Windows.Forms.Label();
+            this.lblWrong = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.lblWordsPerMinute = new System.Windows.Forms.Label();
+            this.lblAcc = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtText
@@ -46,7 +52,7 @@ namespace BrziPrsti
             // 
             // txtGuessingWord
             // 
-            this.txtGuessingWord.Location = new System.Drawing.Point(12, 50);
+            this.txtGuessingWord.Location = new System.Drawing.Point(12, 93);
             this.txtGuessingWord.Multiline = false;
             this.txtGuessingWord.Name = "txtGuessingWord";
             this.txtGuessingWord.ReadOnly = true;
@@ -59,7 +65,7 @@ namespace BrziPrsti
             // lblWords
             // 
             this.lblWords.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWords.Location = new System.Drawing.Point(220, 50);
+            this.lblWords.Location = new System.Drawing.Point(218, 93);
             this.lblWords.Name = "lblWords";
             this.lblWords.Size = new System.Drawing.Size(292, 23);
             this.lblWords.TabIndex = 5;
@@ -68,17 +74,66 @@ namespace BrziPrsti
             // 
             this.lblLine.AutoSize = true;
             this.lblLine.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLine.Location = new System.Drawing.Point(208, 50);
+            this.lblLine.Location = new System.Drawing.Point(208, 93);
             this.lblLine.Name = "lblLine";
             this.lblLine.Size = new System.Drawing.Size(18, 25);
             this.lblLine.TabIndex = 4;
             this.lblLine.Text = "|";
+            // 
+            // lblCorrect
+            // 
+            this.lblCorrect.AutoSize = true;
+            this.lblCorrect.ForeColor = System.Drawing.Color.Green;
+            this.lblCorrect.Location = new System.Drawing.Point(13, 70);
+            this.lblCorrect.Name = "lblCorrect";
+            this.lblCorrect.Size = new System.Drawing.Size(70, 17);
+            this.lblCorrect.TabIndex = 8;
+            this.lblCorrect.Text = "Correct: 0";
+            // 
+            // lblWrong
+            // 
+            this.lblWrong.AutoSize = true;
+            this.lblWrong.ForeColor = System.Drawing.Color.Red;
+            this.lblWrong.Location = new System.Drawing.Point(139, 70);
+            this.lblWrong.Name = "lblWrong";
+            this.lblWrong.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblWrong.Size = new System.Drawing.Size(66, 17);
+            this.lblWrong.TabIndex = 9;
+            this.lblWrong.Text = "Wrong: 0";
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 60000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // lblWordsPerMinute
+            // 
+            this.lblWordsPerMinute.AutoSize = true;
+            this.lblWordsPerMinute.Location = new System.Drawing.Point(13, 40);
+            this.lblWordsPerMinute.Name = "lblWordsPerMinute";
+            this.lblWordsPerMinute.Size = new System.Drawing.Size(57, 17);
+            this.lblWordsPerMinute.TabIndex = 10;
+            this.lblWordsPerMinute.Text = "WPM: 0";
+            // 
+            // lblAcc
+            // 
+            this.lblAcc.AutoSize = true;
+            this.lblAcc.Location = new System.Drawing.Point(120, 40);
+            this.lblAcc.Name = "lblAcc";
+            this.lblAcc.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblAcc.Size = new System.Drawing.Size(82, 17);
+            this.lblAcc.TabIndex = 11;
+            this.lblAcc.Text = "Accuracy: 0";
             // 
             // Game1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(684, 450);
+            this.Controls.Add(this.lblAcc);
+            this.Controls.Add(this.lblWordsPerMinute);
+            this.Controls.Add(this.lblWrong);
+            this.Controls.Add(this.lblCorrect);
             this.Controls.Add(this.txtText);
             this.Controls.Add(this.txtGuessingWord);
             this.Controls.Add(this.lblWords);
@@ -96,5 +151,10 @@ namespace BrziPrsti
         private System.Windows.Forms.RichTextBox txtGuessingWord;
         private System.Windows.Forms.Label lblWords;
         private System.Windows.Forms.Label lblLine;
+        private System.Windows.Forms.Label lblCorrect;
+        private System.Windows.Forms.Label lblWrong;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label lblWordsPerMinute;
+        private System.Windows.Forms.Label lblAcc;
     }
 }
