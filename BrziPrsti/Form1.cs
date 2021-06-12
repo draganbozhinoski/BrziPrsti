@@ -19,7 +19,7 @@ namespace BrziPrsti
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Game game = new Game();
+            Game1 game = new Game1();
             game.ShowDialog();
         }
     }
