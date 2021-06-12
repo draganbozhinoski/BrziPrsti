@@ -83,7 +83,6 @@ namespace BrziPrsti
             }
             s = s.Remove(0, 1);
             lblWords.Text = s;
-
         }
     }
 }
