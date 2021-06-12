@@ -19,7 +19,7 @@ namespace BrziPrsti
         bool isWordCorrect = true;
         int wordsCorrect = 0;
         int wordsWrong = 0;
-        int accuracy = 0;
+        float accuracy = 0;
         int minutes = 0;
         public Game1()
         {
@@ -129,6 +129,8 @@ namespace BrziPrsti
                     {
                         lblWordsPerMinute.Text = $"WPM: {wordsCorrect}";
                     }
+                    accuracy = (float)wordsCorrect / (wordsCorrect + wordsWrong);
+                    lblAcc.Text = $"Accuracy: {accuracy * 100}%";
                     
                 }
             }

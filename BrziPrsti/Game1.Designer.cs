@@ -38,6 +38,7 @@ namespace BrziPrsti
             this.lblWrong = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.lblWordsPerMinute = new System.Windows.Forms.Label();
+            this.lblAcc = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtText
@@ -108,17 +109,28 @@ namespace BrziPrsti
             // lblWordsPerMinute
             // 
             this.lblWordsPerMinute.AutoSize = true;
-            this.lblWordsPerMinute.Location = new System.Drawing.Point(87, 43);
+            this.lblWordsPerMinute.Location = new System.Drawing.Point(13, 40);
             this.lblWordsPerMinute.Name = "lblWordsPerMinute";
             this.lblWordsPerMinute.Size = new System.Drawing.Size(57, 17);
             this.lblWordsPerMinute.TabIndex = 10;
             this.lblWordsPerMinute.Text = "WPM: 0";
+            // 
+            // lblAcc
+            // 
+            this.lblAcc.AutoSize = true;
+            this.lblAcc.Location = new System.Drawing.Point(120, 40);
+            this.lblAcc.Name = "lblAcc";
+            this.lblAcc.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblAcc.Size = new System.Drawing.Size(82, 17);
+            this.lblAcc.TabIndex = 11;
+            this.lblAcc.Text = "Accuracy: 0";
             // 
             // Game1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(684, 450);
+            this.Controls.Add(this.lblAcc);
             this.Controls.Add(this.lblWordsPerMinute);
             this.Controls.Add(this.lblWrong);
             this.Controls.Add(this.lblCorrect);
@@ -143,5 +155,6 @@ namespace BrziPrsti
         private System.Windows.Forms.Label lblWrong;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label lblWordsPerMinute;
+        private System.Windows.Forms.Label lblAcc;
     }
 }
