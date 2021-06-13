@@ -36,7 +36,7 @@ namespace BrziPrsti
         public List<UserScore> GetData()
         {
             List<UserScore> scores1 = new List<UserScore>();
-            FileStream fs = new FileStream("DataFile.dat", FileMode.Open);
+            FileStream fs = new FileStream("DataFile.dat", FileMode.OpenOrCreate);
             try
             {
                 BinaryFormatter formatter = new BinaryFormatter();
