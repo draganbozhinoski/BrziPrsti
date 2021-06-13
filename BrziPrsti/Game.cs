@@ -13,7 +13,7 @@ namespace BrziPrsti
     public partial class Game : Form
     {
         private List<string> rechenice;
-        private List<UserScore> scores { get; set; }
+        private List<UserScore> scores = new List<UserScore>();
         private UserScore score { get; set; }
         private string userName { get; set; }
         private int guessedWords;
@@ -24,13 +24,14 @@ namespace BrziPrsti
         private float accuracy;
         private int numLetters, wrongLetters;
         private bool generated;
-        public Game(string userName)
+        SaveLoadData saveLoad = new SaveLoadData();
+        public Game(string userName,List<UserScore> userScores)
         {
             InitializeComponent();
-            scores = new List<UserScore>();
+            scores = userScores;
             score = new UserScore();
             score.userName = userName;
-            scores.Add(score);
+            
             rechenice = new List<string>() { 
             "onlytesting",
             "Can you feel the sunshine? Does it brighten up your day? Don't you feel that sometimes you just need to run away? Reach out for the sunshine, forget about the rain. Just think about the good times and they will come back again.",
@@ -114,46 +115,25 @@ namespace BrziPrsti
                         float wpmm = wpm;
                         float acc = accuracy;
                         reset();
-                        if (MessageBox.Show("Congrats, you finished early.\nWPM: " + wpmm.ToString() + "\nAccuracy: " + acc + "%\nNEW GAME?", "GOOD JOB!", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                        {
-                            generate();
-                        }
-                        else
-                        {
-                            textBox1.ReadOnly = true;
-                        }
+                        MessageBox.Show("Congrats, you finished early.\nWPM: " + wpmm.ToString() + "\nAccuracy: " + acc, "GOOD JOB!", MessageBoxButtons.OK);
                     }
                     else if (wpm > 100)
                     {
                         float wpmm = wpm;
                         float acc = accuracy;
                         reset();
-                        if (MessageBox.Show("YOU ARE OCTOPUS! GOOD JOB!\nWPM: " + wpmm.ToString() + "\nAccuracy: "+acc+"%\nNEW GAME ?", "GOOD JOB!", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                        {
-                            generate();
-                        }
-                        else
-                        {
-                            reset();
-                            textBox1.ReadOnly = true;
-                        }
+                        MessageBox.Show("YOU ARE OCTOPUS! GOOD JOB!\nWPM: " + wpmm.ToString() + "\nAccuracy: " + acc + "%\nNEW GAME ?", "GOOD JOB!", MessageBoxButtons.OK);
                     }
                     else
                     {
                         float wpmm = wpm;
                         float acc = accuracy;
                         reset();
-                        if (MessageBox.Show("Congrats, you are middle-range writer!\nWPM: " + wpmm.ToString() + "%\nAccuracy: "+acc+"\nNEW GAME?", "GOOD JOB!", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                        {
-                            generate();
-                        }
-                        else
-                        {
-                            reset();
-                            textBox1.ReadOnly = true;
-                        }
+                        MessageBox.Show("Congrats, you are middle-range writer!\nWPM: " + wpmm.ToString() + "%\nAccuracy: " + acc + "\nNEW GAME?", "GOOD JOB!", MessageBoxButtons.OK);
                     }
-
+                    scores.Add(score);
+                    saveLoad.SaveData(scores);
+                    this.Close();
                 }
                 else
                 {
@@ -241,7 +221,7 @@ namespace BrziPrsti
         private void button3_Click(object sender, EventArgs e)
         {
             Leaderboard board = new Leaderboard();
-            board.scores = scores;
+            //board.scores = scores;
             if(scores.Count > 0)
                 MessageBox.Show(scores[0].userName);
             board.init();

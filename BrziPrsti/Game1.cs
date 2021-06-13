@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,8 +15,9 @@ namespace BrziPrsti
 {
     public partial class Game1 : Form
     {
+        SaveLoadData saveLoad = new SaveLoadData();
         List<string> sentences;
-        List<UserScore> scores;
+        List<UserScore> scores = new List<UserScore>();
         UserScore score;
         Random random = new Random();
         string s;
@@ -24,12 +28,12 @@ namespace BrziPrsti
         float accuracy = 0;
         int minutes = 0;
         string userName;
-        public Game1(string userName)
+        public Game1(string userName,List<UserScore> userScores)
         {
-            scores = new List<UserScore>();
+            scores = userScores;
             score = new UserScore();
             score.userName = userName;
-            scores.Add(score);
+            //scores.Add(score);
             sentences = new List<string>() {
             "Can you feel the sunshine? Does it brighten up your day? Don't you feel that sometimes you just need to run away? Reach out for the sunshine, forget about the rain. Just think about the good times and they will come back again.",
             "You gotta see it to believe it, the sky never looked so blue it's so hard to leave it, but that's what I always do. So I keep thinking back to a time under the canyon moon.",
@@ -144,7 +148,10 @@ namespace BrziPrsti
                     else
                         score.update(new UserScore(userName, accuracy, wordsCorrect));
                     txtGuessingWord.ReadOnly = true;
-                    //scores.Add(score);
+                    scores.Add(score);
+                    saveLoad.SaveData(scores);
+                    this.Close();
+                    
                 }
             }
                       
@@ -173,10 +180,10 @@ namespace BrziPrsti
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Leaderboard board = new Leaderboard();
+            /*Leaderboard board = new Leaderboard();
             board.scores = scores;
             board.init();
-            board.ShowDialog();
+            board.ShowDialog();*/
         }
     }
 }

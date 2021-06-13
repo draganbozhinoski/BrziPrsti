@@ -34,6 +34,7 @@ namespace BrziPrsti
             this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Accuracy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.wpm = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnMenu = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.leaderGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,12 +46,11 @@ namespace BrziPrsti
             this.Name,
             this.Accuracy,
             this.wpm});
-            this.leaderGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.leaderGrid.Location = new System.Drawing.Point(0, 0);
+            this.leaderGrid.Location = new System.Drawing.Point(12, 12);
             this.leaderGrid.Name = "leaderGrid";
             this.leaderGrid.RowHeadersWidth = 51;
             this.leaderGrid.RowTemplate.Height = 24;
-            this.leaderGrid.Size = new System.Drawing.Size(573, 492);
+            this.leaderGrid.Size = new System.Drawing.Size(769, 290);
             this.leaderGrid.TabIndex = 0;
             this.leaderGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.leaderGrid_CellContentClick);
             // 
@@ -86,12 +86,24 @@ namespace BrziPrsti
             this.wpm.ReadOnly = true;
             this.wpm.Width = 125;
             // 
+            // btnMenu
+            // 
+            this.btnMenu.Location = new System.Drawing.Point(332, 332);
+            this.btnMenu.Name = "btnMenu";
+            this.btnMenu.Size = new System.Drawing.Size(150, 43);
+            this.btnMenu.TabIndex = 1;
+            this.btnMenu.Text = "Main Menu";
+            this.btnMenu.UseVisualStyleBackColor = true;
+            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
+            // 
             // Leaderboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(573, 492);
+            this.ClientSize = new System.Drawing.Size(793, 403);
+            this.Controls.Add(this.btnMenu);
             this.Controls.Add(this.leaderGrid);
+           
             this.Text = "Leaderboard";
             this.Load += new System.EventHandler(this.Leaderboard_Load);
             ((System.ComponentModel.ISupportInitialize)(this.leaderGrid)).EndInit();
@@ -106,5 +118,6 @@ namespace BrziPrsti
         private System.Windows.Forms.DataGridViewTextBoxColumn Name;
         private System.Windows.Forms.DataGridViewTextBoxColumn Accuracy;
         private System.Windows.Forms.DataGridViewTextBoxColumn wpm;
+        private System.Windows.Forms.Button btnMenu;
     }
 }

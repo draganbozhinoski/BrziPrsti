@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,9 +15,10 @@ namespace BrziPrsti
 {
     public partial class Leaderboard : Form
     {
-        public List<UserScore> scores { get; set; }
+        public List<UserScore> scores1 = new List<UserScore>();
         public int MyProperty { get; set; }
         public int numScores { get; set; }
+        SaveLoadData saveLoad = new SaveLoadData();
 
         public Leaderboard()
         {
@@ -28,7 +32,8 @@ namespace BrziPrsti
         }
         public void init()
         {
-            List<UserScore> sorted = scores.OrderBy(m => m.wpm * m.accuracy).ToList();
+            scores1 = saveLoad.GetData();
+            List<UserScore> sorted = scores1.OrderBy(m => m.wpm * m.accuracy).ToList();
             foreach(var score in sorted)
             {
                 DataGridViewRow row = (DataGridViewRow) leaderGrid.Rows[0].Clone();
@@ -44,6 +49,11 @@ namespace BrziPrsti
         private void leaderGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void btnMenu_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

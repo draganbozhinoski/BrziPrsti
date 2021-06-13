@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace BrziPrsti
 {
+    [Serializable]
     public class UserScore
     {
         public string userName { get; set; }
