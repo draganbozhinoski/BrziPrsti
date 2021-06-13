@@ -70,7 +70,6 @@ namespace BrziPrsti
             string keyPressed = e.KeyChar.ToString();
             if (charsForGuess.Count > 0)
             {
-                string nextChar = charsForGues.Dequeue().ToString();
                 if (e.KeyChar != (char)Keys.Back)
                 {
                     string nextChar = charsForGuess.Dequeue().ToString();
