@@ -70,7 +70,6 @@ namespace BrziPrsti
             string keyPressed = e.KeyChar.ToString();
             if (charsForGuess.Count > 0)
             {
-                
                 if (e.KeyChar != (char)Keys.Back)
                 {
                     string nextChar = charsForGuess.Dequeue().ToString();
@@ -110,6 +109,7 @@ namespace BrziPrsti
             }
             else
             {
+
                 if (keyPressed.Equals(" ") || e.KeyChar == (char)Keys.Enter)
                 {
                     if (!isWordCorrect)
