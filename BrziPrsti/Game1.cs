@@ -62,10 +62,10 @@ namespace BrziPrsti
             string keyPressed = e.KeyChar.ToString();
             if (charsForGues.Count > 0)
             {
-                string nextChar = charsForGues.Dequeue().ToString();
+               
                 if (e.KeyChar != (char)Keys.Back)
                 {
-                   
+                    string nextChar = charsForGues.Dequeue().ToString();
                     if (keyPressed.Equals(nextChar))
                     {
                         txtGuessingWord.SelectionColor = Color.Green;
