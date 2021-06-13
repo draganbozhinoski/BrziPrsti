@@ -13,16 +13,23 @@ namespace BrziPrsti
     public partial class Game1 : Form
     {
         List<string> sentences;
+        List<UserScore> scores;
+        UserScore score;
         Random random = new Random();
         string s;
-        Queue<char> charsForGues = new Queue<char>();
+        Queue<char> charsForGuess = new Queue<char>();
         bool isWordCorrect = true;
         int wordsCorrect = 0;
         int wordsWrong = 0;
         float accuracy = 0;
         int minutes = 0;
-        public Game1()
+        string userName;
+        public Game1(string userName)
         {
+            scores = new List<UserScore>();
+            score = new UserScore();
+            score.userName = userName;
+            scores.Add(score);
             sentences = new List<string>() {
             "Can you feel the sunshine? Does it brighten up your day? Don't you feel that sometimes you just need to run away? Reach out for the sunshine, forget about the rain. Just think about the good times and they will come back again.",
             "You gotta see it to believe it, the sky never looked so blue it's so hard to leave it, but that's what I always do. So I keep thinking back to a time under the canyon moon.",
@@ -40,6 +47,7 @@ namespace BrziPrsti
             "Opening your eyes is all that is needing. The heart lies and the head plays tricks with us, but the eyes see true. Look with your eyes. Hear with your ears. Taste with your mouth. Smell with your nose. Feel with your skin. Then comes the thinking, afterward, and in that way knowing the truth.",
             "The sooner your kids appreciate the value of work, the more successful they will be. Work is part of life. You work to earn money, put food on the table, and keep your homes orderly and clean. For your kids, work involves schoolwork, homework, and teamwork at home and in the community."
             };
+            this.userName = userName;
             InitializeComponent();
             GenerateSentences();
         }
@@ -51,7 +59,7 @@ namespace BrziPrsti
             lblWords.Text = s;
             foreach (var c in s)
             {
-                charsForGues.Enqueue(c);
+                charsForGuess.Enqueue(c);
             }
         }
 
@@ -60,12 +68,12 @@ namespace BrziPrsti
             e.Handled = true;
             KeysConverter converter = new KeysConverter();
             string keyPressed = e.KeyChar.ToString();
-            if (charsForGues.Count > 0)
+            if (charsForGuess.Count > 0)
             {
-                string nextChar = charsForGues.Dequeue().ToString();
+                
                 if (e.KeyChar != (char)Keys.Back)
                 {
-                   
+                    string nextChar = charsForGuess.Dequeue().ToString();
                     if (keyPressed.Equals(nextChar))
                     {
                         txtGuessingWord.SelectionColor = Color.Green;
@@ -102,7 +110,6 @@ namespace BrziPrsti
             }
             else
             {
-
                 if (keyPressed.Equals(" ") || e.KeyChar == (char)Keys.Enter)
                 {
                     if (!isWordCorrect)
@@ -112,7 +119,7 @@ namespace BrziPrsti
                         lblWrong.Text = lblWrong.Text = $"Wrong: {wordsWrong}";
 
                     }
-                    else
+                    else if(txtGuessingWord.Text != "")
                     {
                         txtText.SelectionColor = Color.Green;
                         wordsCorrect++;
@@ -132,6 +139,12 @@ namespace BrziPrsti
                     accuracy = (float)wordsCorrect / (wordsCorrect + wordsWrong);
                     lblAcc.Text = $"Accuracy: {accuracy * 100}%";
                     
+                    if (minutes>0)
+                        score.update(new UserScore(userName, accuracy, wordsCorrect / minutes));
+                    else
+                        score.update(new UserScore(userName, accuracy, wordsCorrect));
+                    txtGuessingWord.ReadOnly = true;
+                    //scores.Add(score);
                 }
             }
                       
@@ -141,6 +154,29 @@ namespace BrziPrsti
         private void timer1_Tick(object sender, EventArgs e)
         {
             minutes++;
+        }
+
+        private void Game1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtText_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtGuessingWord_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Leaderboard board = new Leaderboard();
+            board.scores = scores;
+            board.init();
+            board.ShowDialog();
         }
     }
 }

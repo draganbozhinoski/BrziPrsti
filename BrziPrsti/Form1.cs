@@ -12,6 +12,7 @@ namespace BrziPrsti
 {
     public partial class Form1 : Form
     {
+        List<UserScore> scores;
         public Form1()
         {
             InitializeComponent();
@@ -19,8 +20,28 @@ namespace BrziPrsti
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Game1 game = new Game1();
-            game.ShowDialog();
+            if (textBox1.Text != "")
+            {
+                Game1 game = new Game1(textBox1.Text);
+                game.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Enter username!");
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text != "")
+            {
+                Game game = new Game(textBox1.Text);
+                game.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Enter username!");
+            }
         }
     }
 }

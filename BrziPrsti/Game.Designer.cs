@@ -45,6 +45,7 @@ namespace BrziPrsti
             this.imgZeleno = new System.Windows.Forms.PictureBox();
             this.imgZholto = new System.Windows.Forms.PictureBox();
             this.imgCrveno = new System.Windows.Forms.PictureBox();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.imgZeleno)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgZholto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgCrveno)).BeginInit();
@@ -58,6 +59,7 @@ namespace BrziPrsti
             this.lblGeneratedWords.Size = new System.Drawing.Size(822, 190);
             this.lblGeneratedWords.TabIndex = 0;
             this.lblGeneratedWords.Text = "Click the button to generate words..";
+            this.lblGeneratedWords.Click += new System.EventHandler(this.lblGeneratedWords_Click);
             // 
             // button1
             // 
@@ -189,11 +191,22 @@ namespace BrziPrsti
             this.imgCrveno.TabStop = false;
             this.imgCrveno.Visible = false;
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(213, 496);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(155, 48);
+            this.button3.TabIndex = 13;
+            this.button3.Text = "LEADERBOARD";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(898, 593);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.imgZeleno);
             this.Controls.Add(this.imgZholto);
             this.Controls.Add(this.imgCrveno);
@@ -234,5 +247,6 @@ namespace BrziPrsti
         private System.Windows.Forms.PictureBox imgCrveno;
         private System.Windows.Forms.PictureBox imgZholto;
         private System.Windows.Forms.PictureBox imgZeleno;
+        private System.Windows.Forms.Button button3;
     }
 }
