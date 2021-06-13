@@ -13,6 +13,9 @@ namespace BrziPrsti
     public partial class Game : Form
     {
         private List<string> rechenice;
+        private List<UserScore> scores { get; set; }
+        private UserScore score { get; set; }
+        private string userName { get; set; }
         private int guessedWords;
         private string textZaPogoduvanje;
         private int start;
@@ -21,10 +24,15 @@ namespace BrziPrsti
         private float accuracy;
         private int numLetters, wrongLetters;
         private bool generated;
-        public Game()
+        public Game(string userName)
         {
             InitializeComponent();
+            scores = new List<UserScore>();
+            score = new UserScore();
+            score.userName = userName;
+            scores.Add(score);
             rechenice = new List<string>() { 
+            "onlytesting",
             "Can you feel the sunshine? Does it brighten up your day? Don't you feel that sometimes you just need to run away? Reach out for the sunshine, forget about the rain. Just think about the good times and they will come back again.",
             "You gotta see it to believe it, the sky never looked so blue it's so hard to leave it, but that's what I always do. So I keep thinking back to a time under the canyon moon.",
             "So what did I do for this honour, you are asking? Well, perhaps the fact that he asked me to read his book, and write a ‘postface’ assessment both of his writing and of the issues he covers, and the fact that I said yes, has something to do with it. He says some blushmakingly kind things in his ‘preface to the postface’, which I will have to leave to French readers of the whole thing (published by Plon).",
@@ -34,7 +42,7 @@ namespace BrziPrsti
             "All I'm asking is that you do the minimal amount of work in this class to give yourself the illusion that you're actually learning something, and to give me a modicum of self respect like I'm actually teaching a class.",
             "In the late 1960s, a growing number of people became concerned about the growing problems of pollution and the destruction of natural habitats. This movement led to the formation of groups like the Environmental Protection Agency (EPA). The primary goal of the environmental movement as a whole is to make sure that the environment is safe and intact for future generations to enjoy.",
             "Jacques Seguela writes about political campaigns and communications not merely as an expert analyst, but as an experienced practitioner. Hence his latest book contains both insights worth heeding, but also enlivening tales of his own experience. He is observer and participant; outsider looking in, and insider looking out.  There is much to look at, not least in France with a Presidential election looming, and the outcome far from easy to predict.",
-            "If Lula is a star of this book, so too is Barack Obama. American elections are of enormous interest to all political campaign junkies, a category in which both Seguela and I would almost certainly qualify. Much is made of Obama’s use of the internet, a relatively new phenomenon in historical terms and one the young Senator used brilliantly in his quest to become President. Yet though it was an accurate expression of his modernity, underpinning its use were some very old-fashioned campaign principles.",
+            "If Lula is a star of this book, so too is Barack Obama. American elections are of enormous interest to all political campaign junkies, a category in which both Seguela and I would almost certainly qualify. Much is made of Obama's use of the internet, a relatively new phenomenon in historical terms and one the young Senator used brilliantly in his quest to become President. Yet though it was an accurate expression of his modernity, underpinning its use were some very old-fashioned campaign principles.",
             "You never should settle for the lifetime that is handed to you. There's always a line to be cut and someone to barrel through. And if you should find that you're about to get the short of the stick, take what you want, return what you get.",
             "I know just how to whisper and I know just how to cry. I know just where to find the answers and I know just how to lie. I know just how to fake it and I know just how to scheme. I know just when to face the truth and then I know just when to dream.",
             "If someone is able to show me that what I think or do is not right, I will happily change, for I seek the truth, by which no one was ever truly harmed. It is the person who continues in his self-deception and ignorance who is harmed.",
@@ -42,6 +50,7 @@ namespace BrziPrsti
             "The sooner your kids appreciate the value of work, the more successful they will be. Work is part of life. You work to earn money, put food on the table, and keep your homes orderly and clean. For your kids, work involves schoolwork, homework, and teamwork at home and in the community."
             };
             textZaPogoduvanje = "Hello, Hope you will check here :)";
+            this.userName = userName;
             reset();
         }
 
@@ -96,11 +105,16 @@ namespace BrziPrsti
             {
                 if (guessedWords == textZaPogoduvanje.Split().Length)
                 {
-                    if(wpm < 80)
+                    score.userName = userName;
+                    score.wpm = wpm;
+                    score.accuracy = accuracy;
+                    score.update(new UserScore(userName, accuracy, wpm));
+                    if (wpm < 80)
                     {
                         float wpmm = wpm;
+                        float acc = accuracy;
                         reset();
-                        if (MessageBox.Show("Congrats, you finished early.\nWPM: " + wpmm.ToString() + "\nAccuracy: " + accuracy + "%\nNEW GAME?", "GOOD JOB!", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                        if (MessageBox.Show("Congrats, you finished early.\nWPM: " + wpmm.ToString() + "\nAccuracy: " + acc + "%\nNEW GAME?", "GOOD JOB!", MessageBoxButtons.YesNo) == DialogResult.Yes)
                         {
                             generate();
                         }
@@ -109,11 +123,12 @@ namespace BrziPrsti
                             textBox1.ReadOnly = true;
                         }
                     }
-                    if (wpm > 100)
+                    else if (wpm > 100)
                     {
                         float wpmm = wpm;
+                        float acc = accuracy;
                         reset();
-                        if (MessageBox.Show("YOU ARE OCTOPUS! GOOD JOB!\nWPM: " + wpmm.ToString() + "\nAccuracy: "+accuracy+"%\nNEW GAME ?", "GOOD JOB!", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                        if (MessageBox.Show("YOU ARE OCTOPUS! GOOD JOB!\nWPM: " + wpmm.ToString() + "\nAccuracy: "+acc+"%\nNEW GAME ?", "GOOD JOB!", MessageBoxButtons.YesNo) == DialogResult.Yes)
                         {
                             generate();
                         }
@@ -126,8 +141,9 @@ namespace BrziPrsti
                     else
                     {
                         float wpmm = wpm;
+                        float acc = accuracy;
                         reset();
-                        if (MessageBox.Show("Congrats, you are middle-range writer!\nWPM: " + wpmm.ToString() + "%\nAccuracy: "+accuracy+"\nNEW GAME?", "GOOD JOB!", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                        if (MessageBox.Show("Congrats, you are middle-range writer!\nWPM: " + wpmm.ToString() + "%\nAccuracy: "+acc+"\nNEW GAME?", "GOOD JOB!", MessageBoxButtons.YesNo) == DialogResult.Yes)
                         {
                             generate();
                         }
@@ -156,8 +172,8 @@ namespace BrziPrsti
                         {
                             lblGeneratedWords.ForeColor = Color.Red;
                             wrongLetters += 1;
-                            accuracy = (((float) numLetters - wrongLetters/2 )/ numLetters)*100; // deleno so 2 deka gi zema kako pogresni i na brisenje.
-                            int acc = (int)accuracy;
+                            accuracy = (((float) numLetters - wrongLetters/2 )/ numLetters); // deleno so 2 deka gi zema kako pogresni i na brisenje.
+                            int acc = (int)accuracy*100;
                             lblAccuracy.Text = "Your accuracy: " + acc.ToString() + "%";
                         }
                         else
@@ -215,6 +231,21 @@ namespace BrziPrsti
             button2.Enabled = false;
             lblCount.Visible = true;
             imgCrveno.Visible = true;
+        }
+
+        private void lblGeneratedWords_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Leaderboard board = new Leaderboard();
+            board.scores = scores;
+            if(scores.Count > 0)
+                MessageBox.Show(scores[0].userName);
+            board.init();
+            board.ShowDialog();
         }
 
         private void timerMinute_Tick(object sender, EventArgs e)
