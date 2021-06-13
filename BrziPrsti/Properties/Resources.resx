@@ -121,10 +121,25 @@
   <data name="zholto" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\zholto.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="amhcex3rjwhcncfkbhkjbdt7n2_image" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\amhcex3rjwhcncfkbhkjbdt7n2_image.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="amhcex3rjwhcncfkbhkjbdt7n2_image1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\amhcex3rjwhcncfkbhkjbdt7n2_image1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="HILLBLU_button_background.svg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\HILLBLU_button_background.svg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="crveno" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\crveno.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="e-mail-aerial-afternoon-tea-background" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\e-mail-aerial-afternoon-tea-background.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="zeleno" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\zeleno.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="logo.9d028f49" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logo.9d028f49.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

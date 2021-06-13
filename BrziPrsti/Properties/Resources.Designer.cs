@@ -63,9 +63,59 @@ namespace BrziPrsti.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap amhcex3rjwhcncfkbhkjbdt7n2_image {
+            get {
+                object obj = ResourceManager.GetObject("amhcex3rjwhcncfkbhkjbdt7n2_image", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap amhcex3rjwhcncfkbhkjbdt7n2_image1 {
+            get {
+                object obj = ResourceManager.GetObject("amhcex3rjwhcncfkbhkjbdt7n2_image1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap crveno {
             get {
                 object obj = ResourceManager.GetObject("crveno", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap e_mail_aerial_afternoon_tea_background {
+            get {
+                object obj = ResourceManager.GetObject("e-mail-aerial-afternoon-tea-background", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap HILLBLU_button_background_svg {
+            get {
+                object obj = ResourceManager.GetObject("HILLBLU_button_background.svg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logo_9d028f49 {
+            get {
+                object obj = ResourceManager.GetObject("logo.9d028f49", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

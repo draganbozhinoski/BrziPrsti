@@ -117,5 +117,20 @@
   <ItemGroup>
     <None Include="Resources\zeleno.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\e-mail-aerial-afternoon-tea-background.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\amhcex3rjwhcncfkbhkjbdt7n2_image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\amhcex3rjwhcncfkbhkjbdt7n2_image1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HILLBLU_button_background.svg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo.9d028f49.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

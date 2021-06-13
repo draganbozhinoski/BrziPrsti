@@ -68,6 +68,7 @@ namespace BrziPrsti
             wpmlbl.Text = "Your wpm: 0";
             lblAccuracy.Text = "Your accuracy: 100%";
             lblSeconds.Text = "60";
+            lblCount.Text = "10";
             // VALUES
             guessedWords = 0;
             start = 10;
@@ -246,6 +247,11 @@ namespace BrziPrsti
                 MessageBox.Show(scores[0].userName);
             board.init();
             board.ShowDialog();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            generate();
         }
 
         private void timerMinute_Tick(object sender, EventArgs e)

@@ -28,6 +28,7 @@ namespace BrziPrsti
             else
             {
                 MessageBox.Show("Enter username!");
+                textBox1.Focus();
             }
         }
 
@@ -41,7 +42,18 @@ namespace BrziPrsti
             else
             {
                 MessageBox.Show("Enter username!");
+                textBox1.Focus();
             }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
