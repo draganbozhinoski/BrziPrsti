@@ -28,7 +28,7 @@ namespace BrziPrsti
         float accuracy = 0;
         int minutes = 0;
         string userName;
-        public Marathon(string userName)
+        public Marathon(string userName, List<UserScore>userScores)
         {
             scores = userScores;
             score = new UserScore();

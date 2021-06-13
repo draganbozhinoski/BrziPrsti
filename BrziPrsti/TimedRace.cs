@@ -13,6 +13,7 @@ namespace BrziPrsti
     public partial class TimedRace : Form
     {
         private List<string> rechenice;
+        SaveLoadData saveLoad = new SaveLoadData();
         private List<UserScore> scores = new List<UserScore>();
         private UserScore score { get; set; }
         private string userName { get; set; }
@@ -24,7 +25,7 @@ namespace BrziPrsti
         private float accuracy;
         private int numLetters, wrongLetters;
         private bool generated;
-        public TimedRace(string userName)
+        public TimedRace(string userName,List<UserScore>userScores)
         {
             InitializeComponent();
             scores = userScores;
