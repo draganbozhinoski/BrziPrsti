@@ -27,12 +27,13 @@ namespace BrziPrsti
         {
             if (textBox1.Text != "")
             {
-                Game1 game = new Game1(textBox1.Text,users);
+                Game1 game = new Game1(textBox1.Text);
                 game.ShowDialog();
             }
             else
             {
                 MessageBox.Show("Enter username!");
+                textBox1.Focus();
             }
         }
 
@@ -40,13 +41,24 @@ namespace BrziPrsti
         {
             if (textBox1.Text != "")
             {
-                Game game = new Game(textBox1.Text,users);
+                TimedRace game = new TimedRace(textBox1.Text);
                 game.ShowDialog();
             }
             else
             {
                 MessageBox.Show("Enter username!");
+                textBox1.Focus();
             }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

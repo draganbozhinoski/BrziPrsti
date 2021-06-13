@@ -1,7 +1,7 @@
 ﻿
 namespace BrziPrsti
 {
-    partial class Game1
+    partial class Marathon
     {
         /// <summary>
         /// Required designer variable.
@@ -30,6 +30,7 @@ namespace BrziPrsti
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Marathon));
             this.txtText = new System.Windows.Forms.RichTextBox();
             this.txtGuessingWord = new System.Windows.Forms.RichTextBox();
             this.lblWords = new System.Windows.Forms.Label();
@@ -130,6 +131,7 @@ namespace BrziPrsti
             // 
             // button1
             // 
+            this.button1.Image = global::BrziPrsti.Properties.Resources.HILLBLU_button_background_svg;
             this.button1.Location = new System.Drawing.Point(490, 12);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(182, 45);
@@ -138,7 +140,7 @@ namespace BrziPrsti
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // Game1
+            // Marathon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -152,8 +154,9 @@ namespace BrziPrsti
             this.Controls.Add(this.txtGuessingWord);
             this.Controls.Add(this.lblWords);
             this.Controls.Add(this.lblLine);
-            this.Name = "Game1";
-            this.Text = "Game1";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "Marathon";
+            this.Text = "Marathon";
             this.Load += new System.EventHandler(this.Game1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

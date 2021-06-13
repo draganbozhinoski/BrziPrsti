@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace BrziPrsti
 {
-    public partial class Game : Form
+    public partial class TimedRace : Form
     {
         private List<string> rechenice;
         private List<UserScore> scores = new List<UserScore>();
@@ -24,8 +24,7 @@ namespace BrziPrsti
         private float accuracy;
         private int numLetters, wrongLetters;
         private bool generated;
-        SaveLoadData saveLoad = new SaveLoadData();
-        public Game(string userName,List<UserScore> userScores)
+        public TimedRace(string userName)
         {
             InitializeComponent();
             scores = userScores;
@@ -69,6 +68,7 @@ namespace BrziPrsti
             wpmlbl.Text = "Your wpm: 0";
             lblAccuracy.Text = "Your accuracy: 100%";
             lblSeconds.Text = "60";
+            lblCount.Text = "10";
             // VALUES
             guessedWords = 0;
             start = 10;
@@ -226,6 +226,11 @@ namespace BrziPrsti
                 MessageBox.Show(scores[0].userName);
             board.init();
             board.ShowDialog();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            generate();
         }
 
         private void timerMinute_Tick(object sender, EventArgs e)
