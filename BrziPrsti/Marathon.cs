@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace BrziPrsti
 {
-    public partial class Game1 : Form
+    public partial class Marathon : Form
     {
         List<string> sentences;
         List<UserScore> scores;
@@ -24,7 +24,7 @@ namespace BrziPrsti
         float accuracy = 0;
         int minutes = 0;
         string userName;
-        public Game1(string userName)
+        public Marathon(string userName)
         {
             scores = new List<UserScore>();
             score = new UserScore();

@@ -1,7 +1,7 @@
 ﻿
 namespace BrziPrsti
 {
-    partial class Game
+    partial class TimedRace
     {
         /// <summary>
         /// Required designer variable.
@@ -30,6 +30,7 @@ namespace BrziPrsti
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TimedRace));
             this.lblGeneratedWords = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -238,8 +239,10 @@ namespace BrziPrsti
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lblGeneratedWords);
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Game";
-            this.Text = "Game";
+            this.Text = "Timed Race";
             ((System.ComponentModel.ISupportInitialize)(this.imgZeleno)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgZholto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgCrveno)).EndInit();

@@ -52,17 +52,17 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Game.cs">
+    <Compile Include="TimedRace.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Game.Designer.cs">
-      <DependentUpon>Game.cs</DependentUpon>
+    <Compile Include="TimedRace.Designer.cs">
+      <DependentUpon>TimedRace.cs</DependentUpon>
     </Compile>
-    <Compile Include="Game1.cs">
+    <Compile Include="Marathon.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Game1.Designer.cs">
-      <DependentUpon>Game1.cs</DependentUpon>
+    <Compile Include="Marathon.Designer.cs">
+      <DependentUpon>Marathon.cs</DependentUpon>
     </Compile>
     <Compile Include="Leaderboard.cs">
       <SubType>Form</SubType>
@@ -76,11 +76,11 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Game.resx">
-      <DependentUpon>Game.cs</DependentUpon>
+    <EmbeddedResource Include="TimedRace.resx">
+      <DependentUpon>TimedRace.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Game1.resx">
-      <DependentUpon>Game1.cs</DependentUpon>
+    <EmbeddedResource Include="Marathon.resx">
+      <DependentUpon>Marathon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Leaderboard.resx">
       <DependentUpon>Leaderboard.cs</DependentUpon>

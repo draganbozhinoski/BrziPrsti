@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace BrziPrsti
 {
-    public partial class Game : Form
+    public partial class TimedRace : Form
     {
         private List<string> rechenice;
         private List<UserScore> scores { get; set; }
@@ -24,7 +24,7 @@ namespace BrziPrsti
         private float accuracy;
         private int numLetters, wrongLetters;
         private bool generated;
-        public Game(string userName)
+        public TimedRace(string userName)
         {
             InitializeComponent();
             scores = new List<UserScore>();

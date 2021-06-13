@@ -22,7 +22,7 @@ namespace BrziPrsti
         {
             if (textBox1.Text != "")
             {
-                Game1 game = new Game1(textBox1.Text);
+                Marathon game = new Marathon(textBox1.Text);
                 game.ShowDialog();
             }
             else
@@ -36,7 +36,7 @@ namespace BrziPrsti
         {
             if (textBox1.Text != "")
             {
-                Game game = new Game(textBox1.Text);
+                TimedRace game = new TimedRace(textBox1.Text);
                 game.ShowDialog();
             }
             else
