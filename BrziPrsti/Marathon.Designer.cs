@@ -40,7 +40,6 @@ namespace BrziPrsti
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.lblWordsPerMinute = new System.Windows.Forms.Label();
             this.lblAcc = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtText
@@ -129,23 +128,11 @@ namespace BrziPrsti
             this.lblAcc.TabIndex = 11;
             this.lblAcc.Text = "Accuracy: 0";
             // 
-            // button1
-            // 
-            this.button1.Image = global::BrziPrsti.Properties.Resources.HILLBLU_button_background_svg;
-            this.button1.Location = new System.Drawing.Point(490, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(182, 45);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "LEADERBOARD";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // Marathon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(684, 450);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.lblAcc);
             this.Controls.Add(this.lblWordsPerMinute);
             this.Controls.Add(this.lblWrong);
@@ -174,6 +161,5 @@ namespace BrziPrsti
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label lblWordsPerMinute;
         private System.Windows.Forms.Label lblAcc;
-        private System.Windows.Forms.Button button1;
     }
 }

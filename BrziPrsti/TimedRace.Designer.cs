@@ -46,7 +46,6 @@ namespace BrziPrsti
             this.imgZeleno = new System.Windows.Forms.PictureBox();
             this.imgZholto = new System.Windows.Forms.PictureBox();
             this.imgCrveno = new System.Windows.Forms.PictureBox();
-            this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.imgZeleno)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgZholto)).BeginInit();
@@ -196,17 +195,6 @@ namespace BrziPrsti
             this.imgCrveno.TabStop = false;
             this.imgCrveno.Visible = false;
             // 
-            // button3
-            // 
-            this.button3.Image = global::BrziPrsti.Properties.Resources.HILLBLU_button_background_svg;
-            this.button3.Location = new System.Drawing.Point(213, 496);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(155, 48);
-            this.button3.TabIndex = 13;
-            this.button3.Text = "LEADERBOARD";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
             // button4
             // 
             this.button4.BackgroundImage = global::BrziPrsti.Properties.Resources.HILLBLU_button_background_svg;
@@ -219,13 +207,12 @@ namespace BrziPrsti
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // Game
+            // TimedRace
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(898, 593);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
             this.Controls.Add(this.imgZeleno);
             this.Controls.Add(this.imgZholto);
             this.Controls.Add(this.imgCrveno);
@@ -241,7 +228,7 @@ namespace BrziPrsti
             this.Controls.Add(this.lblGeneratedWords);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Game";
+            this.Name = "TimedRace";
             this.Text = "Timed Race";
             ((System.ComponentModel.ISupportInitialize)(this.imgZeleno)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgZholto)).EndInit();
@@ -268,7 +255,6 @@ namespace BrziPrsti
         private System.Windows.Forms.PictureBox imgCrveno;
         private System.Windows.Forms.PictureBox imgZholto;
         private System.Windows.Forms.PictureBox imgZeleno;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
     }
 }
